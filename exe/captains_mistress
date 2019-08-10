@@ -23,6 +23,18 @@ OptionParser.new do |opts|
     puts CaptainsMistress::VERSION
     exit
   end
+
+  opts.on('--width x', Integer, "User set width of the board, Default 7") do |x|
+    options[:width] = x
+  end
+
+  opts.on('--height x', Integer, "User sets height of the board, Default 6") do |x|
+    options[:height] = x
+  end
+
+  opts.on('--infinite', "Turns on infinite column height option") do
+    options[:infinite] = true
+  end
 end.parse!(args)
 
 CaptainsMistress::App.new(options).run
