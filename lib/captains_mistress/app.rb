@@ -54,6 +54,7 @@ module CaptainsMistress
 
     if @board.draw? 
       puts "The game is a draw"
+      @board.render
       @game_over = true
     end
 

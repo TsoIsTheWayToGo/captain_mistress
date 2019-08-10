@@ -9,10 +9,12 @@ class Board
       number_col = board[0].each_with_index.map {|el, index| (index + 1).to_s}
       board << number_col
     end
+    
     @board = board
     
   end
 
+  
   def new_board
     [
       [' ',' ',' ',' ',' ',' ',' '],
@@ -75,28 +77,18 @@ class Board
   def make_inf_move(player,col,board)
 
     if @board.first[col] != " "
-
       @board.unshift(Array.new(@board.last.length, ' '))
-      @board.reverse.each do |row|
-      
-      if row[col] == ' '
-        row[col] = player.mark
-        return
-      end
     end
-    else
-
      @board.reverse.each do |row|
       if row[col] == ' '
         row[col] = player.mark
         return
       end
     end
-  end
     board.render
     player.take_inf_turn(player)
-   
   end
-
   
+
+
 end
